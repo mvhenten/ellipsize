@@ -24,7 +24,7 @@ last location of an allowed break point, if any. Otherwise just truncates the st
 
 ```javascript
 
-    var ellipsize = require('ellipsize);
+    var ellipsize = require('ellipsize');
 
     ellipsize('');
     // ''
@@ -45,7 +45,7 @@ last location of an allowed break point, if any. Otherwise just truncates the st
 You may provide an alternative ellipse character, or "break points" like so:
 
 ```javascript
-    var ellipsize = require('ellipsize);
+    var ellipsize = require('ellipsize');
 
     ellipsize( 'one two&three four', 8, { chars: [' ', '&'], ellipse: '→' });
     // 'one two→'

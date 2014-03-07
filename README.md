@@ -1,5 +1,7 @@
 # ellipsize
 
+[![Build Status](https://drone.io/github.com/mvhenten/ellipsize/status.png)](https://drone.io/github.com/mvhenten/ellipsize/latest)
+
 Ellipsizes a string near a word boundary.
 
 An ellipsized text looks much better if the ellipsize was added at the end of the

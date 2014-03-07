@@ -1,26 +1,31 @@
 {
-  "name": "ellipsize",
-  "version": "0.0.1",
-  "description": "Ellipsizes a string at the nearest whitespace character near the end of allowed length",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:mvhenten/ellipsize.git"
-  },
-  "keywords": [
+    "name": "ellipsize",
+    "version": "0.0.1",
+    "description": "Ellipsizes a string at the nearest whitespace character near the end of allowed length",
+    "main": "index.js",
+    "scripts": {
+        "test": "./node_modules/mocha/bin/mocha --recursive -u tdd -R spec test/*"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:mvhenten/ellipsize.git"
+    },
+    "keywords": [
     "ellipsize",
     "ellipsis",
     "truncate",
     "shorten",
     "string"
   ],
-  "author": "Matthijs van Henten",
-  "license": "GPLv3",
-  "bugs": {
-    "url": "https://github.com/mvhenten/ellipsize/issues"
-  },
-  "homepage": "https://github.com/mvhenten/ellipsize"
+    "author": "Matthijs van Henten",
+    "license": "GPLv3",
+    "bugs": {
+        "url": "https://github.com/mvhenten/ellipsize/issues"
+    },
+    "homepage": "https://github.com/mvhenten/ellipsize",
+    "devDependencies": {
+        "mocha": "~1.17.1",
+        "js-beautify": "~1.4.2",
+        "jshint": "~2.4.4"
+    }
 }

@@ -1,0 +1,26 @@
+{
+  "name": "ellipsize",
+  "version": "0.0.1",
+  "description": "Ellipsizes a string at the nearest whitespace character near the end of allowed length",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mvhenten/ellipsize.git"
+  },
+  "keywords": [
+    "ellipsize",
+    "ellipsis",
+    "truncate",
+    "shorten",
+    "string"
+  ],
+  "author": "Matthijs van Henten",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/mvhenten/ellipsize/issues"
+  },
+  "homepage": "https://github.com/mvhenten/ellipsize"
+}

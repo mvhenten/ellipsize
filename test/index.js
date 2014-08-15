@@ -70,4 +70,39 @@ suite('ellipsize', function() {
             assert.equal(result, testCase.expect);
         });
     });
+
+    test('ellipsize atomic settings', function() {
+        var cases = [
+            {
+                label: 'atomic settings on',
+                len: 8,
+                string: '123456789ABCDEF',
+                expect: '',
+                atomic: true
+            },
+            {
+                label: 'atomic settings off',
+                len: 8,
+                string: '123456789ABCDEF',
+                expect: '1234567' + ELLIPSE,
+                atomic: false
+            },
+            {
+                label: 'atomic settings default',
+                len: 8,
+                string: '123456789ABCDEF',
+                expect: '1234567' + ELLIPSE,
+                atomic: undefined
+            }
+        ];
+
+        cases.forEach(function(testCase) {
+            var result = ellipsize(testCase.string, testCase.len, {
+                atomic: testCase.atomic
+            });
+            assert.equal(result, testCase.expect);
+        });
+
+    });
+
 });

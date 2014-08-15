@@ -71,34 +71,41 @@ suite('ellipsize', function() {
         });
     });
 
-    test('ellipsize atomic settings', function() {
+    test('ellipsize truncate settings', function() {
         var cases = [
             {
-                label: 'atomic settings on',
+                label: 'truncate settings off',
                 len: 8,
                 string: '123456789ABCDEF',
                 expect: '',
-                atomic: true
+                truncate: false
             },
             {
-                label: 'atomic settings off',
+                label: 'truncate settings on',
                 len: 8,
                 string: '123456789ABCDEF',
                 expect: '1234567' + ELLIPSE,
-                atomic: false
+                truncate: true
             },
             {
-                label: 'atomic settings default',
+                label: 'truncate settings default',
                 len: 8,
                 string: '123456789ABCDEF',
                 expect: '1234567' + ELLIPSE,
-                atomic: undefined
+                truncate: undefined
+            },
+            {
+                label: 'truncate settings default',
+                len: 8,
+                string: '123456789ABCDEF',
+                expect: '1234567' + ELLIPSE,
+                truncate: null
             }
         ];
 
         cases.forEach(function(testCase) {
             var result = ellipsize(testCase.string, testCase.len, {
-                atomic: testCase.atomic
+                truncate: testCase.truncate
             });
             assert.equal(result, testCase.expect);
         });

@@ -4,10 +4,10 @@ var defaults = {
     ellipse: '…',
     chars: [' ', '-'],
     max: 140,
-    atomic: false
+    truncate: true
 };
 
-function ellipsize(str, max, ellipse, chars, atomic) {
+function ellipsize(str, max, ellipse, chars, truncate) {
     var last = 0,
         c = '';
 
@@ -22,7 +22,7 @@ function ellipsize(str, max, ellipse, chars, atomic) {
 
         if (i < max) continue;
         if (last === 0) {
-            return atomic ? '' : str.substring(0, max - 1) + ellipse;
+            return !truncate ? '' : str.substring(0, max - 1) + ellipse;
         }
 
         return str.substring(0, last) + ellipse;
@@ -38,10 +38,12 @@ module.exports = function(str, max, opts) {
     opts = opts || {};
 
     for (var key in defaults) {
-        opts[key] = opts[key] || defaults[key];
+        if (opts[key] === null || typeof opts[key] === 'undefined') {
+            opts[key] = defaults[key];
+        }
     }
 
     opts.max = max || opts.max;
 
-    return ellipsize(str, opts.max, opts.ellipse, opts.chars, opts.atomic);
+    return ellipsize(str, opts.max, opts.ellipse, opts.chars, opts.truncate);
 };

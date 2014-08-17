@@ -20,7 +20,8 @@ This ellipsize function is robust and tested against a couple of edge cases.
 It's written to be fast, work in any browser and have no dependencies at all.
 
 It simply loops over all the characters using a single function call, storing the
-last location of an allowed break point, if any. Otherwise just truncates the string.
+last location of an allowed break point, if any. Otherwise it just truncates the string
+or return empty string if `truncate` options set up to `false` (in some cases its just better).
 
 ## Examples
 
@@ -51,6 +52,20 @@ You may provide an alternative ellipse character, or "break points" like so:
 
     ellipsize( 'one two&three four', 8, { chars: [' ', '&'], ellipse: '→' });
     // 'one two→'
+
+```
+
+Also you may provide a setting to `truncate` words:
+
+```javascript
+    var ellipsize = require('ellipsize');
+
+    ellipsize( '123456789ABCDEF', 8, { truncate: false });
+    // '' 
+
+    // its default settings
+    ellipsize( '123456789ABCDEF', 8, { truncate: true });
+    // '1234567…'
 
 ```
 

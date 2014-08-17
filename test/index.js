@@ -70,4 +70,46 @@ suite('ellipsize', function() {
             assert.equal(result, testCase.expect);
         });
     });
+
+    test('ellipsize truncate settings', function() {
+        var cases = [
+            {
+                label: 'truncate settings off',
+                len: 8,
+                string: '123456789ABCDEF',
+                expect: '',
+                truncate: false
+            },
+            {
+                label: 'truncate settings on',
+                len: 8,
+                string: '123456789ABCDEF',
+                expect: '1234567' + ELLIPSE,
+                truncate: true
+            },
+            {
+                label: 'truncate settings default',
+                len: 8,
+                string: '123456789ABCDEF',
+                expect: '1234567' + ELLIPSE,
+                truncate: undefined
+            },
+            {
+                label: 'truncate settings default',
+                len: 8,
+                string: '123456789ABCDEF',
+                expect: '1234567' + ELLIPSE,
+                truncate: null
+            }
+        ];
+
+        cases.forEach(function(testCase) {
+            var result = ellipsize(testCase.string, testCase.len, {
+                truncate: testCase.truncate
+            });
+            assert.equal(result, testCase.expect);
+        });
+
+    });
+
 });

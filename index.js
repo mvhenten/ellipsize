@@ -12,20 +12,25 @@ function ellipsize(str, max, ellipse, chars, truncate) {
 
     var last = 0,
         c = '',
-        midMax = Math.floor((max - ellipse.length) / 2),
+        midMax = Math.floor(max / 2),
         computedMax = truncate === 'middle' ? midMax : max;
 
     for (var i = 0, len = str.length; i < len; i++) {
         c = str.charAt(i);
 
-        if (chars.indexOf(c) !== -1) {
+        if (chars.indexOf(c) !== -1 && truncate !== 'middle') {
             last = i;
         }
 
-
-        if (i + ellipse.length < computedMax) continue;
+        if (i < computedMax) continue;
         if (last === 0) {
-            return !truncate ? '' : str.substring(0, computedMax - 1) + ellipse + (truncate === 'middle' ? str.substring(str.length - midMax, str.length) : '');
+            return !truncate ? 
+                '' : 
+                str.substring(0, computedMax - 1) + ellipse + (
+                    truncate === 'middle' ? 
+                    str.substring(str.length - midMax, str.length) : 
+                    ''
+                );
         }
 
         return str.substring(0, last) + ellipse;

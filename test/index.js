@@ -100,6 +100,13 @@ suite('ellipsize', function() {
                 string: '123456789ABCDEF',
                 expect: '1234567' + ELLIPSE,
                 truncate: null
+            },
+            {
+                label: 'truncate settings middle',
+                len: 8,
+                string: '123456789ABCDEF',
+                expect: '123' + ELLIPSE + 'CDEF',
+                truncate: 'middle'
             }
         ];
 
@@ -112,4 +119,52 @@ suite('ellipsize', function() {
 
     });
 
+    test('ellipsize truncate words', function() {
+        var cases = [
+            // XXX I'm unsure what the expected behavior should actually be, here
+            // {
+            //     label: 'truncate words settings off',
+            //     len: 12,
+            //     string: 'the quick brown fox',
+            //     expect: '',
+            //     truncate: false
+            // },
+            {
+                label: 'truncate words settings on',
+                len: 16,
+                string: 'the quick brown box',
+                expect: 'the quick brown' + ELLIPSE,
+                truncate: true
+            },
+            {
+                label: 'truncate words settings default',
+                len: 16,
+                string: 'the quick brown fox',
+                expect: 'the quick brown' + ELLIPSE,
+                truncate: undefined
+            },
+            {
+                label: 'truncate word settings default',
+                len: 16,
+                string: 'the quick brown fox',
+                expect: 'the quick brown' + ELLIPSE,
+                truncate: null
+            },
+            {
+                label: 'truncate words settings middle',
+                len: 16,
+                string: 'the quick brown fox',
+                expect: 'the qui' + ELLIPSE + 'rown fox',
+                truncate: 'middle'
+            }
+        ];
+
+        cases.forEach(function(testCase) {
+            var result = ellipsize(testCase.string, testCase.len, {
+                truncate: testCase.truncate
+            });
+            assert.equal(result, testCase.expect);
+        });
+
+    });
 });

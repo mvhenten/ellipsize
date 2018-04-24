@@ -53,5 +53,5 @@ module.exports = function(str, max, opts) {
 
     opts.max = max || opts.max;
 
-    return ellipsize(str, opts.max, opts.ellipse, opts.chars, opts.truncate);
+    return ellipsize(str, opts.max - 1, opts.ellipse, opts.chars, opts.truncate);
 };

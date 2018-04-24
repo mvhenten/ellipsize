@@ -1,6 +1,6 @@
 # ellipsize
 
-[![Build Status](https://drone.io/github.com/mvhenten/ellipsize/status.png)](https://drone.io/github.com/mvhenten/ellipsize/latest)
+[![Build Status](https://travis-ci.org/mvhenten/ellipsize.svg?branch=master)](https://travis-ci.org/mvhenten/ellipsize)
 
 Ellipsizes a string near a word boundary.
 

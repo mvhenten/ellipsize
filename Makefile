@@ -4,4 +4,4 @@ tidy:
 	@./node_modules/js-beautify/js/bin/js-beautify.js -p -k -w120 -r -f $(GIT_MODIFIED_UPDATED)
 
 lint:
-	@./node_modules/jshint/bin/jshint --verbose $(GIT_MODIFIED_UPDATED)
+	@./node_modules/jshint/bin/jshint --verbose $(GIT_MODIFIED_UPDATED | grep -v package.json)

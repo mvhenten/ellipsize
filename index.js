@@ -13,7 +13,7 @@ function ellipsize(str, max, ellipse, chars, truncate) {
     var last = 0,
         c = '',
         midMax = Math.floor(max / 2),
-        computedMax = truncate === 'middle' ? midMax : max;
+        computedMax = truncate === 'middle' ? midMax : max - 1;
 
     for (var i = 0, len = str.length; i < len; i++) {
         c = str.charAt(i);
@@ -24,13 +24,13 @@ function ellipsize(str, max, ellipse, chars, truncate) {
 
         if (i < computedMax) continue;
         if (last === 0) {
-            return !truncate ? 
-                '' : 
+            return !truncate ?
+                '' :
                 str.substring(0, computedMax - 1) + ellipse + (
-                    truncate === 'middle' ? 
-                    str.substring(str.length - midMax, str.length) : 
+                    truncate === 'middle' ?
+                    str.substring(str.length - midMax, str.length) :
                     ''
-                );
+            );
         }
 
         return str.substring(0, last) + ellipse;

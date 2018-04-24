@@ -8,6 +8,10 @@ An ellipsized text looks much better if the ellipsize was added at the end of th
 last full word instead of somewhere in the middle - especially if there are very
 few characters remaining.
 
+## N.B. Major version change
+
+As of 1.x, ellipsize honors the max length including the ellipsize char. This means you get exactly _n_ characters, including the ellipse.
+
 ## Why make a module for something sooo simple
 
 Off by one errors.

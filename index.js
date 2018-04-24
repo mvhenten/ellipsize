@@ -24,13 +24,13 @@ function ellipsize(str, max, ellipse, chars, truncate) {
 
         if (i < computedMax) continue;
         if (last === 0) {
-            return !truncate ? 
-                '' : 
+            return !truncate ?
+                '' :
                 str.substring(0, computedMax - 1) + ellipse + (
-                    truncate === 'middle' ? 
-                    str.substring(str.length - midMax, str.length) : 
+                    truncate === 'middle' ?
+                    str.substring(str.length - midMax, str.length) :
                     ''
-                );
+            );
         }
 
         return str.substring(0, last) + ellipse;
@@ -53,5 +53,5 @@ module.exports = function(str, max, opts) {
 
     opts.max = max || opts.max;
 
-    return ellipsize(str, opts.max - 1, opts.ellipse, opts.chars, opts.truncate);
+    return ellipsize(str, opts.max, opts.ellipse, opts.chars, opts.truncate);
 };

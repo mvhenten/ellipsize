@@ -4,7 +4,8 @@
     "description": "Ellipsizes a string at the nearest whitespace character near the end of allowed length",
     "main": "index.js",
     "scripts": {
-        "test": "tape test/*"
+        "test": "tape test/*",
+        "beautify": "js-beautify -r -f test/index.js -f index.js"
     },
     "repository": {
         "type": "git",

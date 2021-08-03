@@ -13,7 +13,7 @@ function ellipsize(str, max, ellipse, chars, truncate) {
     var last = 0,
         c = '',
         midMax = Math.floor(max / 2),
-        computedMax = truncate === 'middle' ? midMax : max - 1;
+        computedMax = truncate === 'middle' ? midMax : max - ellipse.length;
 
     for (var i = 0, len = str.length; i < len; i++) {
         c = str.charAt(i);

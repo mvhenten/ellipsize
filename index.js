@@ -11,9 +11,10 @@ function ellipsize(str, max, ellipse, chars, truncate) {
     if (str.length < max) return str;
 
     var last = 0,
+        ellipsLength = ellipse.length,
         c = '',
         midMax = Math.floor(max / 2),
-        computedMax = truncate === 'middle' ? midMax : max - 1;
+        computedMax = truncate === 'middle' ? midMax : max - ellipsLength;
 
     for (var i = 0, len = str.length; i < len; i++) {
         c = str.charAt(i);

@@ -1,6 +1,6 @@
 # ellipsize
 
-[![Build Status](https://travis-ci.org/mvhenten/ellipsize.svg?branch=master)](https://travis-ci.org/mvhenten/ellipsize)
+[![Node.js CI](https://github.com/mvhenten/ellipsize/actions/workflows/node.js.yml/badge.svg)](https://github.com/mvhenten/ellipsize/actions/workflows/node.js.yml)
 
 Ellipsizes a string near a word boundary.
 

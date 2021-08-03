@@ -11,12 +11,12 @@
         "url": "git@github.com:mvhenten/ellipsize.git"
     },
     "keywords": [
-    "ellipsize",
-    "ellipsis",
-    "truncate",
-    "shorten",
-    "string"
-  ],
+        "ellipsize",
+        "ellipsis",
+        "truncate",
+        "shorten",
+        "string"
+    ],
     "author": "Matthijs van Henten",
     "license": "MIT",
     "bugs": {
@@ -25,7 +25,7 @@
     "homepage": "https://github.com/mvhenten/ellipsize",
     "devDependencies": {
         "js-beautify": "~1.4.2",
-        "jshint": "~2.4.4",
+        "jshint": "^2.13.0",
         "tape": "^4.9.0"
     },
     "dependencies": {

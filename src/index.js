@@ -81,7 +81,7 @@ function ellipsize(str, max, ellipse, chars, truncate) {
  *
  * @param {string} str - String to ellipsize
  * @param {number} max - Max length including ellipsis
- * @param {Record<string, any>} opts - See additional options
+ * @param {Record<string, any>} [opts] - See additional options
  * @returns {string} ellipsized string
  */
 module.exports = function (str, max, opts) {

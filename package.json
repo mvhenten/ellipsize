@@ -1,6 +1,6 @@
 {
     "name": "ellipsize",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "description": "Ellipsizes a string at the nearest whitespace character near the end of allowed length",
     "main": "src/index.js",
     "files": [

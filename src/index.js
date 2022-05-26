@@ -62,15 +62,19 @@ function ellipsize(str, max, ellipse, chars, truncate) {
 
     var maxLen = max - ellipse.length;
     var end = maxLen;
+    var breakpointFound = false;
 
     for (var i = 0; i <= maxLen; i++) {
         var char = str.charAt(i);
-        if (chars.indexOf(char) !== -1) end = i;
+        if (chars.indexOf(char) !== -1) {
+            end = i;
+            breakpointFound = true;
+        }
     }
 
     // no breakpoint found, but truncate
     // was not allowed.
-    if (!truncate && end == maxLen) return "";
+    if (!truncate && !breakpointFound) return "";
 
     return str.slice(0, end) + ellipse;
 }

@@ -105,6 +105,13 @@ test("ellipsize truncate settings", function (assert) {
             truncate: true,
         },
         {
+            label: "truncate settings on and breakpoint at max length position",
+            len: 4,
+            string: "123 456",
+            expect: "123" + ELLIPSE,
+            truncate: false,
+        },
+        {
             label: "truncate settings default",
             len: 8,
             string: "123456789ABCDEF",

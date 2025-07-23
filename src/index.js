@@ -1,5 +1,12 @@
 "use strict";
 
+/**
+ *  @typedef {Object} EllipsizeOptions
+ *  @property {string} [ellipse] - Character to use as the ellipsis
+ *  @property {string[]} [chars] - Characters to use as breakpoints
+ *  @property {number} [max] - Maximum length of the string including the ellipse
+ *  @property {boolean} [truncate] - Whether to truncate the string if no breakpoints are found
+ */
 var defaults = {
     ellipse: "…",
     chars: [" ", "-"],
@@ -85,7 +92,7 @@ function ellipsize(str, max, ellipse, chars, truncate) {
  *
  * @param {string} str - String to ellipsize
  * @param {number} max - Max length including ellipsis
- * @param {Record<string, any>} [opts] - See additional options
+ * @param {EllipsizeOptions} [opts] - See additional options
  * @returns {string} ellipsized string
  */
 module.exports = function (str, max, opts) {

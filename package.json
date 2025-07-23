@@ -4,7 +4,8 @@
 	"description": "Ellipsizes a string at the nearest whitespace character near the end of allowed length",
 	"main": "src/index.js",
 	"files": [
-		"src/index.js"
+		"src/index.js",
+		"types/index.d.ts"
 	],
 	"scripts": {
 		"test": "eslint && prettier -c **/*.js && tape test/*",
@@ -13,7 +14,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:mvhenten/ellipsize.git"
+		"url": "git+ssh://git@github.com/mvhenten/ellipsize.git"
 	},
 	"keywords": [
 		"ellipsize",

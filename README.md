@@ -8,13 +8,11 @@ An ellipsized text looks much better if the ellipsize was added at the end of th
 last full word instead of somewhere in the middle - especially if there are very
 few characters remaining.
 
-As of 1.x, ellipsize honors the max length including the ellipsize char. This means you get exactly _n_ characters, including the ellipse.
-
 ## Examples
 
 ```javascript
 
-    var ellipsize = require('ellipsize');
+    import ellipsize from "ellipsize";
 
     ellipsize('');
     // ''
@@ -35,7 +33,7 @@ As of 1.x, ellipsize honors the max length including the ellipsize char. This me
 You may provide an alternative ellipse character, or "break points" like so:
 
 ```javascript
-    var ellipsize = require('ellipsize');
+    import ellipsize from "ellipsize";
 
     ellipsize( 'one two&three four', 8, { chars: [' ', '&'], ellipse: '→' });
     // 'one two→'
@@ -45,7 +43,7 @@ You may provide an alternative ellipse character, or "break points" like so:
 Also you may provide a setting to `truncate` words:
 
 ```javascript
-    var ellipsize = require('ellipsize');
+    import ellipsize from "ellipsize";
 
     // only ellipsize if word boundarys found
     ellipsize( '123456789ABCDEF', 8, { truncate: false });

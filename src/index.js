@@ -1,17 +1,15 @@
-"use strict";
-
 /**
  *  @typedef {Object} EllipsizeOptions
  *  @property {string} [ellipse] - Character to use as the ellipsis
  *  @property {string[]} [chars] - Characters to use as breakpoints
  *  @property {number} [max] - Maximum length of the string including the ellipse
- *  @property {boolean} [truncate] - Whether to truncate the string if no breakpoints are found
+ *  @property {"middle"|boolean} [truncate] - Whether to truncate the string if no breakpoints are found
  */
-var defaults = {
-    ellipse: "…",
-    chars: [" ", "-"],
-    max: 140,
-    truncate: true,
+const defaults = {
+  ellipse: "…",
+  chars: [" ", "-"],
+  max: 140,
+  truncate: true,
 };
 
 /**
@@ -33,26 +31,26 @@ var defaults = {
  */
 
 function ellipsizeMiddle(str, max, ellipse, chars) {
-    if (str <= max) return str;
-    if (max < 2) return str.slice(0, max - ellipse.length) + ellipse;
+  if (str.length <= max) return str;
+  if (max < 2) return str.slice(0, max - ellipse.length) + ellipse;
 
-    var maxLen = max - ellipse.length;
-    var middle = Math.floor(maxLen / 2);
+  const maxLen = max - ellipse.length;
+  const middle = Math.floor(maxLen / 2);
 
-    var left = middle;
-    var right = str.length - middle;
+  let left = middle;
+  let right = str.length - middle;
 
-    for (var i = 0; i < middle; i++) {
-        var charLeft = str.charAt(i);
-        var posRight = str.length - i;
+  for (let i = 0; i < middle; i++) {
+    const charLeft = str.charAt(i);
+    const posRight = str.length - i;
 
-        var charRight = str.charAt(posRight);
+    const charRight = str.charAt(posRight);
 
-        if (chars.indexOf(charLeft) !== -1) left = i;
-        if (chars.indexOf(charRight) !== -1) right = posRight;
-    }
+    if (chars.indexOf(charLeft) !== -1) left = i;
+    if (chars.indexOf(charRight) !== -1) right = posRight;
+  }
 
-    return str.slice(0, left) + ellipse + str.slice(right);
+  return str.slice(0, left) + ellipse + str.slice(right);
 }
 
 /**
@@ -65,25 +63,25 @@ function ellipsizeMiddle(str, max, ellipse, chars) {
  * @returns
  */
 function ellipsize(str, max, ellipse, chars, truncate) {
-    if (str.length <= max) return str;
+  if (str.length <= max) return str;
 
-    var maxLen = max - ellipse.length;
-    var end = maxLen;
-    var breakpointFound = false;
+  const maxLen = max - ellipse.length;
+  let end = maxLen;
+  let breakpointFound = false;
 
-    for (var i = 0; i <= maxLen; i++) {
-        var char = str.charAt(i);
-        if (chars.indexOf(char) !== -1) {
-            end = i;
-            breakpointFound = true;
-        }
+  for (let i = 0; i <= maxLen; i++) {
+    const char = str.charAt(i);
+    if (chars.indexOf(char) !== -1) {
+      end = i;
+      breakpointFound = true;
     }
+  }
 
-    // no breakpoint found, but truncate
-    // was not allowed.
-    if (!truncate && !breakpointFound) return "";
+  // no breakpoint found, but truncate
+  // was not allowed.
+  if (!truncate && !breakpointFound) return "";
 
-    return str.slice(0, end) + ellipse;
+  return str.slice(0, end) + ellipse;
 }
 
 /**
@@ -95,24 +93,24 @@ function ellipsize(str, max, ellipse, chars, truncate) {
  * @param {EllipsizeOptions} [opts] - See additional options
  * @returns {string} ellipsized string
  */
-module.exports = function (str, max, opts) {
-    if (typeof str !== "string" || str.length === 0) return "";
-    if (max === 0) return "";
+module.exports = (str, max, opts) => {
+  if (typeof str !== "string" || str.length === 0) return "";
+  if (max === 0) return "";
 
-    opts = opts || {};
+  opts = opts || {};
 
-    for (var key in defaults) {
-        if (opts[key] === null || typeof opts[key] === "undefined") {
-            opts[key] = defaults[key];
-        }
+  for (var key in defaults) {
+    if (opts[key] === null || typeof opts[key] === "undefined") {
+      opts[key] = defaults[key];
     }
+  }
 
-    opts.max = max || opts.max;
+  opts.max = max || opts.max;
 
-    if (opts.truncate == "middle")
-        return ellipsizeMiddle(str, opts.max, opts.ellipse, opts.chars);
+  if (opts.truncate === "middle")
+    return ellipsizeMiddle(str, opts.max, opts.ellipse, opts.chars);
 
-    return ellipsize(str, opts.max, opts.ellipse, opts.chars, opts.truncate);
+  return ellipsize(str, opts.max, opts.ellipse, opts.chars, opts.truncate);
 };
 
 module.exports.ellipsizeMiddle = ellipsizeMiddle;

@@ -11,53 +11,49 @@ few characters remaining.
 ## Examples
 
 ```javascript
+import ellipsize from "ellipsize";
 
-    import ellipsize from "ellipsize";
-
-    ellipsize('');
-    // ''
-    ellipsize(undefined);
-    // ''
-    ellipsize('one two three four', 8 );
-    // 'one two…'
-    ellipsize('one two-three four', 8 );
-    // 'one two…'
-    ellipsize('one two three four', 100 );
-    // 'one two three four'
-    ellipsize('12345678910')
-    // '1234567…'
-    ellipsize('abc', 0 );
-    // ''
-
+ellipsize("");
+// ''
+ellipsize(undefined);
+// ''
+ellipsize("one two three four", 8);
+// 'one two…'
+ellipsize("one two-three four", 8);
+// 'one two…'
+ellipsize("one two three four", 100);
+// 'one two three four'
+ellipsize("12345678910");
+// '1234567…'
+ellipsize("abc", 0);
+// ''
 ```
+
 You may provide an alternative ellipse character, or "break points" like so:
 
 ```javascript
-    import ellipsize from "ellipsize";
+import ellipsize from "ellipsize";
 
-    ellipsize( 'one two&three four', 8, { chars: [' ', '&'], ellipse: '→' });
-    // 'one two→'
-
+ellipsize("one two&three four", 8, { chars: [" ", "&"], ellipse: "→" });
+// 'one two→'
 ```
 
 Also you may provide a setting to `truncate` words:
 
 ```javascript
-    import ellipsize from "ellipsize";
+import ellipsize from "ellipsize";
 
-    // only ellipsize if word boundarys found
-    ellipsize( '123456789ABCDEF', 8, { truncate: false });
-    // '' 
+// only ellipsize if word boundarys found
+ellipsize("123456789ABCDEF", 8, { truncate: false });
+// ''
 
-    // ellipsize in the middle
-    ellipsize( '1234…CDEF', 9, { truncate: "middle" });
-    // '1234…CDEF' 
+// ellipsize in the middle
+ellipsize("1234…CDEF", 9, { truncate: "middle" });
+// '1234…CDEF'
 
-
-    // its default settings
-    ellipsize( '123456789ABCDEF', 8, { truncate: true });
-    // '1234567…'
-
+// its default settings
+ellipsize("123456789ABCDEF", 8, { truncate: true });
+// '1234567…'
 ```
 
 ## Copyright
@@ -82,5 +78,3 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-
-

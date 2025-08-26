@@ -135,7 +135,7 @@ test("ellipsize truncate settings", (assert) => {
       label: "truncate settings middle edge case",
       len: 30,
       string: "a",
-      expect: `a`,
+      expect: "a",
       truncate: "middle",
     },
   ];

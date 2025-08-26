@@ -3,7 +3,7 @@
  *  @property {string} [ellipse] - Character to use as the ellipsis
  *  @property {string[]} [chars] - Characters to use as breakpoints
  *  @property {number} [max] - Maximum length of the string including the ellipse
- *  @property {boolean} [truncate] - Whether to truncate the string if no breakpoints are found
+ *  @property {"middle"|boolean} [truncate] - Whether to truncate the string if no breakpoints are found
  */
 const defaults = {
   ellipse: "…",

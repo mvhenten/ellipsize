@@ -131,6 +131,13 @@ test("ellipsize truncate settings", (assert) => {
       expect: `123${ELLIPSE}DEF`,
       truncate: "middle",
     },
+    {
+      label: "truncate settings middle edge case",
+      len: 30,
+      string: "a",
+      expect: `a`,
+      truncate: "middle",
+    },
   ];
 
   cases.forEach((testCase) => {

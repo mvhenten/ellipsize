@@ -5,7 +5,7 @@
  *  @property {number} [max] - Maximum length of the string including the ellipse
  *  @property {boolean} [truncate] - Whether to truncate the string if no breakpoints are found
  */
-var defaults = {
+const defaults = {
   ellipse: "…",
   chars: [" ", "-"],
   max: 140,
@@ -31,7 +31,7 @@ var defaults = {
  */
 
 function ellipsizeMiddle(str, max, ellipse, chars) {
-  if (str <= max) return str;
+  if (str.length <= max) return str;
   if (max < 2) return str.slice(0, max - ellipse.length) + ellipse;
 
   const maxLen = max - ellipse.length;

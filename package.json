@@ -1,39 +1,40 @@
 {
-	"name": "ellipsize",
-	"version": "0.5.1",
-	"description": "Ellipsizes a string at the nearest whitespace character near the end of allowed length",
-	"main": "src/index.js",
-	"files": [
-		"src/index.js",
-		"types/index.d.ts"
-	],
-	"scripts": {
-		"test": "eslint && prettier -c **/*.js && tape test/*",
-		"fix": "prettier --write **/*.js",
-		"typescript:emit": "tsc"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+ssh://git@github.com/mvhenten/ellipsize.git"
-	},
-	"keywords": [
-		"ellipsize",
-		"ellipsis",
-		"truncate",
-		"shorten",
-		"string"
-	],
-	"types": "types/index.d.ts",
-	"author": "Matthijs van Henten",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/mvhenten/ellipsize/issues"
-	},
-	"homepage": "https://github.com/mvhenten/ellipsize",
-	"devDependencies": {
-		"eslint": "^8.7.0",
-		"prettier": "^2.5.1",
-		"semantic-release": "^24.2.7",
-		"tape": "^5.4.1"
-	}
+  "name": "ellipsize",
+  "version": "0.5.1",
+  "description": "Ellipsizes a string at the nearest whitespace character near the end of allowed length",
+  "main": "src/index.js",
+  "files": [
+    "src/index.js",
+    "types/index.d.ts"
+  ],
+  "scripts": {
+    "test": "biome ci src test && tape test/*",
+    "fix": "biome check --write src test",
+    "typescript:emit": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mvhenten/ellipsize.git"
+  },
+  "keywords": [
+    "ellipsize",
+    "ellipsis",
+    "truncate",
+    "shorten",
+    "string"
+  ],
+  "types": "types/index.d.ts",
+  "author": "Matthijs van Henten",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mvhenten/ellipsize/issues"
+  },
+  "homepage": "https://github.com/mvhenten/ellipsize",
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.2",
+    "eslint": "^8.7.0",
+    "prettier": "^2.5.1",
+    "semantic-release": "^24.2.7",
+    "tape": "^5.4.1"
+  }
 }

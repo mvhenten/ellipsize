@@ -93,7 +93,7 @@ function ellipsize(str, max, ellipse, chars, truncate) {
  * @param {EllipsizeOptions} [opts] - See additional options
  * @returns {string} ellipsized string
  */
-module.exports = (str, max, opts) => {
+export default (str, max, opts) => {
   if (typeof str !== "string" || str.length === 0) return "";
   if (max === 0) return "";
 
@@ -113,5 +113,4 @@ module.exports = (str, max, opts) => {
   return ellipsize(str, opts.max, opts.ellipse, opts.chars, opts.truncate);
 };
 
-module.exports.ellipsizeMiddle = ellipsizeMiddle;
-module.exports.ellipsize = ellipsize;
+export { ellipsizeMiddle };

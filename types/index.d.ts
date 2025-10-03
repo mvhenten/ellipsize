@@ -1,13 +1,6 @@
-declare namespace _exports {
-    export { EllipsizeOptions };
-}
-declare function _exports(str: string, max: number, opts?: EllipsizeOptions): string;
-declare namespace _exports {
-    export { ellipsizeMiddle };
-    export { ellipsize };
-}
-export = _exports;
-type EllipsizeOptions = {
+declare function _default(str: string, max: number, opts?: EllipsizeOptions): string;
+export default _default;
+export type EllipsizeOptions = {
     /**
      * - Character to use as the ellipsis
      */
@@ -23,7 +16,7 @@ type EllipsizeOptions = {
     /**
      * - Whether to truncate the string if no breakpoints are found
      */
-    truncate?: boolean;
+    truncate?: "middle" | boolean;
 };
 /**
  * "mac-style" or "harmonica" ellipsize.
@@ -42,15 +35,5 @@ type EllipsizeOptions = {
  * @param {string[]} chars
  * @returns {string} ellipsized
  */
-declare function ellipsizeMiddle(str: string, max: number, ellipse: string, chars: string[]): string;
-/**
- *
- * @param {string} str
- * @param {number} max
- * @param {string} ellipse
- * @param {string[]} chars
- * @param {boolean} truncate
- * @returns
- */
-declare function ellipsize(str: string, max: number, ellipse: string, chars: string[], truncate: boolean): string;
+export function ellipsizeMiddle(str: string, max: number, ellipse: string, chars: string[]): string;
 //# sourceMappingURL=index.d.ts.map

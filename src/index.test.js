@@ -1,10 +1,11 @@
-var test = require("tape");
-var ellipsize = require("../src/index");
+import assert from "node:assert/strict";
+import { test } from "node:test";
+import ellipsize from "../src/index.js";
 
-var ELLIPSE = "…";
+const ELLIPSE = "…";
 
-test("ellipsize simple cases", (assert) => {
-  var cases = [
+test("ellipsize simple cases", () => {
+  const cases = [
     {
       label: "zero length string",
       len: 100,
@@ -83,12 +84,10 @@ test("ellipsize simple cases", (assert) => {
     assert.equal(result, testCase.expect, testCase.label);
     assert.ok(result.length <= testCase.len || 140);
   });
-
-  assert.end();
 });
 
-test("ellipsize truncate settings", (assert) => {
-  var cases = [
+test("ellipsize truncate settings", () => {
+  const cases = [
     {
       label: "truncate settings off",
       len: 8,
@@ -146,12 +145,10 @@ test("ellipsize truncate settings", (assert) => {
     });
     assert.equal(result, testCase.expect, testCase.label);
   });
-
-  assert.end();
 });
 
-test("ellipsize truncate middle", (assert) => {
-  var cases = [
+test("ellipsize truncate middle", () => {
+  const cases = [
     {
       label: "truncate words settings middle short",
       len: 16,
@@ -174,12 +171,10 @@ test("ellipsize truncate middle", (assert) => {
     });
     assert.equal(result, testCase.expect, testCase.label);
   });
-
-  assert.end();
 });
 
-test("ellipsize custom ellipsize", (assert) => {
-  var cases = [
+test("ellipsize custom ellipsize", () => {
+  const cases = [
     {
       label: "zero length string",
       len: 100,
@@ -218,6 +213,4 @@ test("ellipsize custom ellipsize", (assert) => {
     assert.equal(result, expect, "ellipsized as expected");
     assert.ok(result.length <= len, "length does not exceed maxLen");
   });
-
-  assert.end();
 });

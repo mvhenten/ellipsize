@@ -56,6 +56,10 @@ ellipsize("123456789ABCDEF", 8, { truncate: true });
 // '1234567…'
 ```
 
+## BREAKIN CHANGE
+
+As from v7 and up, this package ships as a native ESM module. If you need to use an older node, stick to v6.2.
+
 ## Copyright
 
 The MIT License (MIT)
